@@ -86,21 +86,48 @@ cmds.move(building_x, building_height / 2.0, building_z, building)
 #   - Position it so it sits on the ground (not floating or buried).
 # ---------------------------------------------------------------------------
 
+building = cmds.polySphere(
+    name="building_sphere",
+    radius=3,
+)[0]
 
+cmds.move(3, building_height / 2.0, 3, building)
 # ---------------------------------------------------------------------------
 # TODO: Add Object 3
 # ---------------------------------------------------------------------------
+building = cmds.polyCylinder(
+    name="building_cylinder",
+    radius=0.5,
+    height=10,
+)[0]
 
+cmds.move(-5, 10 / 2.0, -10, building)
 
 # ---------------------------------------------------------------------------
 # TODO: Add Object 4
 # ---------------------------------------------------------------------------
+building = cmds.polyPyramid(
+    name="building_pyramid",
+    sideLength=5,
+    numberOfSides=3,
+)[0]
 
+cmds.move(-5, 12, -10, building)
 
 # ---------------------------------------------------------------------------
 # TODO: Add Object 5
 # ---------------------------------------------------------------------------
+building = cmds.polyTorus(
+    name="building_donut",
+    heightBaseline=0,
+    radius=5,
+    sectionRadius=2,
+    twist=10,
+    subdivisionsAxis=20,
+    subdivisionsHeight=20,
+)[0]
 
+cmds.move(3, 3, 3, building)
 
 # ---------------------------------------------------------------------------
 # TODO (Optional): Add more objects to make your scene more interesting!
