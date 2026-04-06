@@ -1,37 +1,6 @@
-"""
-DIGM 131 - Assignment 1: Procedural Scene Builder
-==================================================
 
-OBJECTIVE:
-    Build a simple 3D scene in Maya using Python scripting.
-    You will practice using maya.cmds to create and position geometry,
-    and learn to use descriptive variable names.
+#DIGM 131 - Assignment 1: Procedural Scene Builder
 
-REQUIREMENTS:
-    1. Create a ground plane (a large, flat polygon plane).
-    2. Create at least 5 objects in your scene.
-    3. Use at least 2 different primitive types (e.g., cubes AND spheres,
-       or cylinders AND cones, etc.).
-    4. Position every object using descriptive variable names
-       (e.g., house_x, tree_height -- NOT x1, h).
-    5. Add comments explaining what each section of your code does.
-
-GRADING CRITERIA:
-    - [20%] Ground plane is created and scaled appropriately.
-    - [30%] At least 5 objects are created using at least 2 primitive types.
-    - [25%] All positions/sizes use descriptive variable names.
-    - [15%] Code is commented clearly and thoroughly.
-    - [10%] Scene is visually coherent (objects are placed intentionally,
-            not overlapping randomly).
-
-TIPS:
-    - Run this script from Maya's Script Editor (Python tab).
-    - Use maya.cmds.polyCube(), maya.cmds.polySphere(), maya.cmds.polyCylinder(),
-      maya.cmds.polyCone(), maya.cmds.polyPlane(), etc.
-    - Use maya.cmds.move(x, y, z, objectName) to position objects.
-    - Use maya.cmds.scale(x, y, z, objectName) to resize objects.
-    - Use maya.cmds.rename(oldName, newName) to give objects meaningful names.
-"""
 
 import maya.cmds as cmds
 
@@ -77,24 +46,15 @@ building = cmds.polyCube(
 # Raise the building so its base sits on the ground plane.
 cmds.move(building_x, building_height / 2.0, building_z, building)
 
-# ---------------------------------------------------------------------------
-# TODO: Add Object 2
-# Create a second object using a DIFFERENT primitive type than the cube above.
-# Remember to:
-#   - Use descriptive variable names for size and position.
-#   - Name the object meaningfully with the 'name' parameter or cmds.rename().
-#   - Position it so it sits on the ground (not floating or buried).
-# ---------------------------------------------------------------------------
-
+#Create Sphere
 building = cmds.polySphere(
     name="building_sphere",
     radius=3,
 )[0]
 
 cmds.move(3, building_height / 2.0, 3, building)
-# ---------------------------------------------------------------------------
-# TODO: Add Object 3
-# ---------------------------------------------------------------------------
+
+#Create Cylinder
 building = cmds.polyCylinder(
     name="building_cylinder",
     radius=0.5,
@@ -103,9 +63,7 @@ building = cmds.polyCylinder(
 
 cmds.move(-5, 10 / 2.0, -10, building)
 
-# ---------------------------------------------------------------------------
-# TODO: Add Object 4
-# ---------------------------------------------------------------------------
+#Create Pyramid
 building = cmds.polyPyramid(
     name="building_pyramid",
     sideLength=5,
@@ -114,9 +72,7 @@ building = cmds.polyPyramid(
 
 cmds.move(-5, 12, -10, building)
 
-# ---------------------------------------------------------------------------
-# TODO: Add Object 5
-# ---------------------------------------------------------------------------
+#Create Torus
 building = cmds.polyTorus(
     name="building_donut",
     heightBaseline=0,
@@ -128,11 +84,6 @@ building = cmds.polyTorus(
 )[0]
 
 cmds.move(3, 3, 3, building)
-
-# ---------------------------------------------------------------------------
-# TODO (Optional): Add more objects to make your scene more interesting!
-# Consider: trees, lamp posts, fences, vehicles, animals, etc.
-# ---------------------------------------------------------------------------
 
 
 # ---------------------------------------------------------------------------
